@@ -254,7 +254,7 @@ fun RunMetroScreen(
             color = TrackCream,
           )
           Spacer(modifier = Modifier.height(8.dp))
-          FlowRowLike(centered = true) {
+          FlowRowLike(spaceEvenly = true) {
             listOf(2, 3, 4, 6).forEach { beats ->
               ChoicePill(
                 label = "$beats 박",
@@ -378,7 +378,7 @@ private fun HeroCard(
         activeBeat = state.activeBeat,
         isPlaying = state.isPlaying,
       )
-      FlowRowLike(horizontalSpacing = 10.dp, verticalSpacing = 10.dp, centered = true) {
+      FlowRowLike(horizontalSpacing = 10.dp, verticalSpacing = 10.dp, spaceEvenly = true) {
         ActionPill(label = "-5", onClick = onStepDownFast)
         ActionPill(label = "-1", onClick = onStepDown)
         ActionPill(label = "+1", onClick = onStepUp)
@@ -588,7 +588,7 @@ private fun ActionPill(
 private fun FlowRowLike(
   horizontalSpacing: androidx.compose.ui.unit.Dp = 8.dp,
   verticalSpacing: androidx.compose.ui.unit.Dp = 8.dp,
-  centered: Boolean = false,
+  spaceEvenly: Boolean = false,
   content: @Composable RowScope.() -> Unit,
 ) {
   Row(
@@ -597,7 +597,7 @@ private fun FlowRowLike(
         .fillMaxWidth()
         .horizontalScroll(rememberScrollState())
         .padding(vertical = verticalSpacing / 2),
-    horizontalArrangement = if (centered) Arrangement.Center else Arrangement.spacedBy(horizontalSpacing),
+    horizontalArrangement = if (spaceEvenly) Arrangement.SpaceEvenly else Arrangement.spacedBy(horizontalSpacing),
     content = content,
   )
 }
