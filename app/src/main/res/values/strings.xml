@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RunMetro</string>
+    <string name="notification_channel_name">RunMetro Playback</string>
+    <string name="notification_channel_description">러닝 메트로놈이 백그라운드에서도 계속 재생됩니다.</string>
+    <string name="notification_action_slower">-5 BPM</string>
+    <string name="notification_action_faster">+5 BPM</string>
+    <string name="notification_action_stop">정지</string>
+</resources>
