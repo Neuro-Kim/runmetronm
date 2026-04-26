@@ -264,26 +264,6 @@ fun RunMetroScreen(
             }
           }
         }
-
-        RunnerCard(
-          title = "시인성 개선",
-          subtitle = "반투명 위주였던 화면을 고대비 카드와 밝은 텍스트 중심으로 정리했습니다.",
-        ) {
-          StatusRow(
-            labels =
-              listOf(
-                "High Contrast",
-                "Low-Tone Options",
-                "120-220 BPM",
-              ),
-          )
-          Spacer(modifier = Modifier.height(12.dp))
-          Text(
-            text = "다음 단계에서 Wear OS 리모컨을 붙일 때도 현재 톤, BPM, 재생 상태를 그대로 공유할 수 있는 구조는 유지했습니다.",
-            style = MaterialTheme.typography.bodyLarge,
-            color = TrackMist,
-          )
-        }
       }
     }
   }
@@ -551,28 +531,6 @@ private fun BeatIndicators(
             .clip(CircleShape)
             .background(color),
       )
-    }
-  }
-}
-
-@Composable
-private fun StatusRow(labels: List<String>) {
-  FlowRowLike(horizontalSpacing = 10.dp, verticalSpacing = 10.dp) {
-    labels.forEach { label ->
-      Box(
-        modifier =
-          Modifier
-            .clip(RoundedCornerShape(999.dp))
-            .background(FinishLine)
-            .border(1.dp, TrackLine, RoundedCornerShape(999.dp))
-            .padding(horizontal = 12.dp, vertical = 8.dp),
-      ) {
-        Text(
-          text = label,
-          style = MaterialTheme.typography.labelLarge,
-          color = TrackCream,
-        )
-      }
     }
   }
 }
