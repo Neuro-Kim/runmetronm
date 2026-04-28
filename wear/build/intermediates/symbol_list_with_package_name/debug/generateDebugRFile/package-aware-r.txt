@@ -1,4 +1,0 @@
-com.neurokim.runmetronm.wear
-drawable ic_wear_launcher
-string app_name
-style Theme_RunMetroWear

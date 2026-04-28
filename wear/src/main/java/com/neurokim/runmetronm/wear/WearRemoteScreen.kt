@@ -2,6 +2,7 @@ package com.neurokim.runmetronm.wear
 
 import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -58,7 +59,7 @@ fun RunMetroWearApp() {
       modifier =
         Modifier
           .fillMaxSize()
-          .background(Color(0xFF05070A)),
+          .background(Color.Black),
     ) {
       Box(
         modifier =
@@ -75,8 +76,9 @@ fun RunMetroWearApp() {
         Text(
           text = currentBpm?.toString() ?: "—",
           fontSize = 72.sp,
-          fontWeight = FontWeight.Bold,
-          color = if (isPlaying) Color(0xFFFF7A3D) else Color.White,
+          fontWeight = FontWeight.Black,
+          letterSpacing = (-2.5).sp,
+          color = if (isPlaying) Color(0xFFCCFF00) else Color.White,
         )
       }
       Box(
@@ -89,8 +91,9 @@ fun RunMetroWearApp() {
         ) {
           WearRemoteButton(
             symbol = "-",
-            containerColor = Color(0xFF2A3440),
+            containerColor = Color(0xFF18181B),
             contentColor = Color.White,
+            borderColor = Color(0xFF3F3F46),
             onClick = {
               haptics.performHapticFeedback(HapticFeedbackType.TextHandleMove)
               scope.launch {
@@ -103,8 +106,9 @@ fun RunMetroWearApp() {
           )
           WearRemoteButton(
             symbol = "+",
-            containerColor = Color(0xFFFF7A3D),
-            contentColor = Color.White,
+            containerColor = Color(0xFFCCFF00),
+            contentColor = Color.Black,
+            borderColor = Color(0xFFCCFF00),
             onClick = {
               haptics.performHapticFeedback(HapticFeedbackType.TextHandleMove)
               scope.launch {
@@ -126,11 +130,12 @@ private fun WearRemoteButton(
   symbol: String,
   containerColor: Color,
   contentColor: Color,
+  borderColor: Color,
   onClick: () -> Unit,
 ) {
   Button(
     onClick = onClick,
-    modifier = Modifier.size(78.dp),
+    modifier = Modifier.size(78.dp).border(2.dp, borderColor, CircleShape),
     shape = CircleShape,
     colors =
       ButtonDefaults.buttonColors(
@@ -146,7 +151,7 @@ private fun WearRemoteButton(
       Text(
         text = symbol,
         fontSize = 38.sp,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Black,
       )
     }
   }

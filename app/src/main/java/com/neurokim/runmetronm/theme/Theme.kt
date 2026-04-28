@@ -9,18 +9,18 @@ import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme =
   darkColorScheme(
-    primary = PulseOrange,
-    onPrimary = TrackCream,
-    secondary = PaceMint,
-    onSecondary = TrackBlack,
-    tertiary = SprintGold,
-    background = TrackBlack,
+    primary = Neon,
+    onPrimary = PureBlack,
+    secondary = Neon,
+    onSecondary = PureBlack,
+    tertiary = TrackCream,
+    background = PureBlack,
     onBackground = TrackCream,
-    surface = TrackPanel,
+    surface = SurfaceDim,
     onSurface = TrackCream,
-    surfaceVariant = FinishLine,
-    onSurfaceVariant = TrackFog,
-    outline = TrackLine,
+    surfaceVariant = SurfaceLowest,
+    onSurfaceVariant = Zinc400,
+    outline = Zinc700,
   )
 
 private val LightColorScheme =

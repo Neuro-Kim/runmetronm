@@ -1,8 +1,8 @@
 package com.neurokim.runmetronm.metronome
 
-const val MIN_BPM = 120
-const val MAX_BPM = 220
-const val DEFAULT_BPM = 180
+const val MIN_BPM = 40
+const val MAX_BPM = 240
+const val DEFAULT_BPM = 175
 const val DEFAULT_VOLUME = 0.72f
 const val DEFAULT_BEATS_PER_BAR = 4
 const val MIN_VOLUME = 0.15f
