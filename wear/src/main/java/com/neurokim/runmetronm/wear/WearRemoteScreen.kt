@@ -139,7 +139,7 @@ private fun BpmPage(
             scope.launch {
               val sent = messenger.sendBpmDelta(-1)
               if (!sent) {
-                Toast.makeText(context, "폰을 연결해 주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Phone not connected", Toast.LENGTH_SHORT).show()
               }
             }
           },
@@ -154,7 +154,7 @@ private fun BpmPage(
             scope.launch {
               val sent = messenger.sendBpmDelta(1)
               if (!sent) {
-                Toast.makeText(context, "폰을 연결해 주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Phone not connected", Toast.LENGTH_SHORT).show()
               }
             }
           },
@@ -183,7 +183,7 @@ private fun SettingsPage(
         scope.launch {
           val sent = messenger.sendVolumeDelta(-1)
           if (!sent) {
-            Toast.makeText(context, "폰을 연결해 주세요", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Phone not connected", Toast.LENGTH_SHORT).show()
           }
         }
       },
@@ -192,7 +192,7 @@ private fun SettingsPage(
         scope.launch {
           val sent = messenger.sendVolumeDelta(1)
           if (!sent) {
-            Toast.makeText(context, "폰을 연결해 주세요", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Phone not connected", Toast.LENGTH_SHORT).show()
           }
         }
       },
@@ -206,7 +206,7 @@ private fun SettingsPage(
         scope.launch {
           val sent = messenger.sendToneCycle(-1)
           if (!sent) {
-            Toast.makeText(context, "폰을 연결해 주세요", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Phone not connected", Toast.LENGTH_SHORT).show()
           }
         }
       },
@@ -215,7 +215,7 @@ private fun SettingsPage(
         scope.launch {
           val sent = messenger.sendToneCycle(1)
           if (!sent) {
-            Toast.makeText(context, "폰을 연결해 주세요", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Phone not connected", Toast.LENGTH_SHORT).show()
           }
         }
       },

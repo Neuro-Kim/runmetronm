@@ -484,7 +484,7 @@ private fun NotificationPermissionCard(onRequestPermission: () -> Unit) {
   ) {
     LabelCaps(text = "NOTIFICATION REQUIRED", color = Neon)
     Text(
-      text = "백그라운드 제어를 위해 알림을 허용해 주세요.",
+      text = "Allow notifications so the metronome can be controlled in the background.",
       color = Zinc300,
       fontSize = 14.sp,
     )

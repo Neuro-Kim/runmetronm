@@ -37,14 +37,14 @@ class MetronomeNotification(private val context: Context) {
         append(settings.toneProfile.label)
         append(" · ")
         append("${settings.beatsPerBar}/4 ")
-        append(if (settings.accentEnabled) "· 강세 ON" else "· 강세 OFF")
+        append(if (settings.accentEnabled) "· Accent ON" else "· Accent OFF")
       }
 
     return NotificationCompat.Builder(context, CHANNEL_ID)
       .setSmallIcon(R.drawable.ic_notification)
       .setContentTitle(title)
       .setContentText(text)
-      .setSubText("음악과 함께 재생")
+      .setSubText("Plays alongside music")
       .setContentIntent(activityPendingIntent())
       .setOnlyAlertOnce(true)
       .setSilent(true)
