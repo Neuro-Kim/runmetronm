@@ -16,7 +16,7 @@ android {
   compileSdk = 36
 
   defaultConfig {
-    applicationId = "com.neurokim.runmetronm"
+    applicationId = "com.neurokim.pulserun"
     minSdk = 33
     targetSdk = 36
     versionCode = (project.property("runmetro.versionCode") as String).toInt()

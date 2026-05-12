@@ -40,7 +40,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
-private val TONE_LABELS = listOf("소프트 우드", "로우 펄스", "클리어 벨")
+private val TONE_LABELS = listOf("Soft Wood", "Low Pulse", "Clear Bell")
 
 @Composable
 fun RunMetroWearApp() {

@@ -1,12 +1,12 @@
 ---
-title: RunMetro 개인정보처리방침
+title: Pulse Run 개인정보처리방침
 ---
 
-# RunMetro 개인정보처리방침
+# Pulse Run 개인정보처리방침
 
 **최종 업데이트:** 2026년 5월 12일
 
-본 방침은 RunMetro 및 RunMetro Remote(이하 "본 앱")가 사용자의 개인정보를 어떻게 처리하는지 설명합니다.
+본 방침은 Pulse Run 및 Pulse Run Remote(이하 "본 앱")가 사용자의 개인정보를 어떻게 처리하는지 설명합니다.
 
 ## 1. 수집하는 정보
 
@@ -24,7 +24,7 @@ title: RunMetro 개인정보처리방침
 
 ## 3. 폰–시계 간 통신
 
-본 앱은 Wear OS 동반 앱(RunMetro Remote)과 BPM 조정, 재생/정지, 음량 변경 등의 명령을 Google Play Services Wearable API를 통해 주고받습니다. 이 통신은 페어링된 두 단말기 간에서만 이뤄지며 외부 서버를 거치지 않습니다.
+본 앱은 Wear OS 동반 앱(Pulse Run Remote)과 BPM 조정, 재생/정지, 음량 변경 등의 명령을 Google Play Services Wearable API를 통해 주고받습니다. 이 통신은 페어링된 두 단말기 간에서만 이뤄지며 외부 서버를 거치지 않습니다.
 
 ## 4. 요청 권한과 사용 목적
 

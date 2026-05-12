@@ -31,7 +31,7 @@ class MetronomeNotification(private val context: Context) {
   }
 
   fun buildRunning(settings: MetronomeSettings): Notification {
-    val title = "RunMetro · ${settings.bpm} BPM"
+    val title = "Pulse Run · ${settings.bpm} BPM"
     val text =
       buildString {
         append(settings.toneProfile.label)
