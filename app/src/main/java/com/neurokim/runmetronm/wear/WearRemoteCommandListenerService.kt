@@ -22,12 +22,28 @@ class WearRemoteCommandListenerService : WearableListenerService() {
       WearRemoteProtocol.BPM_REQUEST_PATH -> {
         newIsPlaying = controller.uiState.value.isPlaying
       }
+      WearRemoteProtocol.VOLUME_ADJUST_PATH -> {
+        val delta = WearRemoteProtocol.decodeDelta(messageEvent.data) ?: return
+        controller.stepClickVolume(delta)
+        newIsPlaying = controller.uiState.value.isPlaying
+      }
+      WearRemoteProtocol.TONE_CYCLE_PATH -> {
+        val delta = WearRemoteProtocol.decodeDelta(messageEvent.data) ?: return
+        controller.cycleToneProfile(delta)
+        newIsPlaying = controller.uiState.value.isPlaying
+      }
       else -> return
     }
+    val settings = controller.currentSettings()
     Wearable.getMessageClient(applicationContext).sendMessage(
       messageEvent.sourceNodeId,
       WearRemoteProtocol.STATE_SYNC_PATH,
-      WearRemoteProtocol.encodeState(controller.currentSettings().bpm, newIsPlaying),
+      WearRemoteProtocol.encodeState(
+        bpm = settings.bpm,
+        isPlaying = newIsPlaying,
+        clickVolume = settings.clickVolume,
+        toneOrdinal = settings.toneProfile.ordinal,
+      ),
     )
   }
 }

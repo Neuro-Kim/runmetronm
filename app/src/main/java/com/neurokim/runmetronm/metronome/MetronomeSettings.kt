@@ -7,6 +7,7 @@ const val DEFAULT_VOLUME = 0.72f
 const val DEFAULT_BEATS_PER_BAR = 4
 const val MIN_VOLUME = 0.15f
 const val MAX_VOLUME = 1.0f
+const val VOLUME_STEP = 0.1f
 
 data class MetronomeSettings(
   val bpm: Int = DEFAULT_BPM,

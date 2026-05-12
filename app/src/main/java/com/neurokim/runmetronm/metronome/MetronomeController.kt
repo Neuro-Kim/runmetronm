@@ -61,6 +61,13 @@ class MetronomeController(
     refreshRunningService(refreshService)
   }
 
+  fun stepClickVolume(stepCount: Int, refreshService: Boolean = true) {
+    val current = currentSettings().clickVolume
+    val next = (current + stepCount * VOLUME_STEP).coerceIn(MIN_VOLUME, MAX_VOLUME)
+    preferencesRepository.setClickVolume(next)
+    refreshRunningService(refreshService)
+  }
+
   fun setBeatsPerBar(value: Int, refreshService: Boolean = true) {
     preferencesRepository.setBeatsPerBar(value)
     refreshRunningService(refreshService)
@@ -73,6 +80,15 @@ class MetronomeController(
 
   fun setToneProfile(value: MetronomeToneProfile, refreshService: Boolean = true) {
     preferencesRepository.setToneProfile(value)
+    refreshRunningService(refreshService)
+  }
+
+  fun cycleToneProfile(stepCount: Int, refreshService: Boolean = true) {
+    val entries = MetronomeToneProfile.entries
+    val size = entries.size
+    val currentOrdinal = currentSettings().toneProfile.ordinal
+    val nextOrdinal = ((currentOrdinal + stepCount) % size + size) % size
+    preferencesRepository.setToneProfile(entries[nextOrdinal])
     refreshRunningService(refreshService)
   }
 
