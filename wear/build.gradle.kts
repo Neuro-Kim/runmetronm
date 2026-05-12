@@ -1,6 +1,14 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.compose.compiler)
+}
+
+val localProps = Properties().apply {
+  val f = rootProject.file("local.properties")
+  if (f.exists()) FileInputStream(f).use { load(it) }
 }
 
 android {
@@ -11,14 +19,32 @@ android {
     applicationId = "com.neurokim.runmetronm"
     minSdk = 33
     targetSdk = 36
-    versionCode = 1
-    versionName = "1.0"
+    versionCode = (project.property("runmetro.versionCode") as String).toInt()
+    versionName = project.property("runmetro.versionName") as String
+  }
+
+  signingConfigs {
+    create("release") {
+      val path = localProps.getProperty("RUNMETRO_RELEASE_STORE_FILE")
+      if (path != null) {
+        storeFile = file(path)
+        storePassword = localProps.getProperty("RUNMETRO_RELEASE_STORE_PASSWORD")
+        keyAlias = localProps.getProperty("RUNMETRO_RELEASE_KEY_ALIAS")
+        keyPassword = localProps.getProperty("RUNMETRO_RELEASE_KEY_PASSWORD")
+      }
+    }
   }
 
   buildTypes {
     release {
       isMinifyEnabled = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+      signingConfig =
+        if (localProps.getProperty("RUNMETRO_RELEASE_STORE_FILE") != null) {
+          signingConfigs.getByName("release")
+        } else {
+          signingConfigs.getByName("debug")
+        }
     }
   }
 
@@ -38,6 +64,11 @@ android {
     resources {
       excludes += "/META-INF/{AL2.0,LGPL2.1}"
     }
+  }
+
+  lint {
+    // False positive: MainActivity extends androidx.activity.ComponentActivity, which is an Activity.
+    disable += "Instantiatable"
   }
 }
 
