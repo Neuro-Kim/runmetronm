@@ -184,7 +184,7 @@ private fun PulseTopBar() {
           modifier = Modifier.size(28.dp),
         )
         Text(
-          text = "PULSE_RUN",
+          text = "PULSE RUN",
           color = Neon,
           fontWeight = FontWeight.Black,
           fontStyle = FontStyle.Italic,
